@@ -1,7 +1,7 @@
-const hello = require('./Hello');
+const greyWolf = require('./GreyWolf');
 
 module.exports = class {
   mount(app) {
-    app.use('/', hello);
+    app.use('/grey-wolf', greyWolf);
   }
 };
