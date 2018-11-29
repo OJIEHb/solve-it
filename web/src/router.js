@@ -12,5 +12,20 @@ export default new Router({
       name: 'home',
       component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
     },
+    {
+      path: '/grey-wolf',
+      name: 'grey-wolf',
+      component: () => import(/* webpackChunkName: "grey-wolf" */ '@/views/GreyWolf.vue')
+    },
+    {
+      path: '/bat-gang',
+      name: 'bat-gang',
+      component: () => import(/* webpackChunkName: "bat-gang" */ '@/views/BatGang.vue')
+    },
+    {
+      path: '/gravitational-search',
+      name: 'gravitational-search',
+      component: () => import(/* webpackChunkName: "gravitational-search" */ '@/views/GravitationalSearch.vue')
+    },
   ]
 })

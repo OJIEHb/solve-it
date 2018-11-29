@@ -13,18 +13,18 @@
           <span class="md-title">Solve it</span>
         </md-app-toolbar>
         <md-list class="side-menu">
-          <md-list-item>
-            <md-icon md-src="./assets/icons/wolf.svg" />
+          <router-link tag="md-list-item" to="/grey-wolf">
+            <md-icon md-src="./assets/icons/wolf.svg"/>
             <span class="md-list-item-text">Grey wolf</span>
-          </md-list-item>
-          <md-list-item>
-            <md-icon md-src="./assets/icons/bat.svg" />
+          </router-link>
+          <router-link tag="md-list-item" to="/bat-gang">
+            <md-icon md-src="./assets/icons/bat.svg"/>
             <span class="md-list-item-text">Bat gang</span>
-          </md-list-item>
-          <md-list-item>
-            <md-icon md-src="./assets/icons/planet.svg" />
+          </router-link>
+          <router-link tag="md-list-item" to="/gravitational-search">
+            <md-icon md-src="./assets/icons/planet.svg"/>
             <span class="md-list-item-text">Gravitational search</span>
-          </md-list-item>
+          </router-link>
         </md-list>
       </md-app-drawer>
 
@@ -34,7 +34,6 @@
     </md-app>
   </div>
 </template>
-
 
 
 <script>
