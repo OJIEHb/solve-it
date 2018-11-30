@@ -1,4 +1,4 @@
-const mathFunctions = require('../core/mathFunctions');
+const mathFunctions = require('./MathFunctions');
 
 module.exports = function solve(problem) {
   const targetFunction = mathFunctions[problem.function];
