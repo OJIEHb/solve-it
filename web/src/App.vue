@@ -13,15 +13,15 @@
           <span class="md-title">Solve it</span>
         </md-app-toolbar>
         <md-list class="side-menu">
-          <router-link tag="md-list-item" to="/grey-wolf">
+          <router-link tag="md-list-item" to="/grey-wolf" @click.native="menuVisible = !menuVisible">
             <md-icon md-src="./assets/icons/wolf.svg"/>
             <span class="md-list-item-text">Grey wolf</span>
           </router-link>
-          <router-link tag="md-list-item" to="/bat-gang">
+          <router-link tag="md-list-item" to="/bat-gang" @click.native="menuVisible = !menuVisible">
             <md-icon md-src="./assets/icons/bat.svg"/>
             <span class="md-list-item-text">Bat gang</span>
           </router-link>
-          <router-link tag="md-list-item" to="/gravitational-search">
+          <router-link tag="md-list-item" to="/gravitational-search" @click.native="menuVisible = !menuVisible">
             <md-icon md-src="./assets/icons/planet.svg"/>
             <span class="md-list-item-text">Gravitational search</span>
           </router-link>
