@@ -1,7 +1,7 @@
 const mathFunctions = require('./MathFunctions');
 
 module.exports = function solve(problem) {
-  const targetFunction = mathFunctions[problem.function];
+  const targetFunction = mathFunctions[problem.targetFunction];
   let iterationNumber = 0;
   let population = initPopulation(problem, targetFunction);
   let solution = {generations: []};

@@ -2,7 +2,7 @@ const mathFunctions = require('./MathFunctions');
 const ALPHA_WOLF = 0;
 
 module.exports = function solve(problem) {
-  const targetFunction = mathFunctions[problem.function];
+  const targetFunction = mathFunctions[problem.targetFunction];
   let iterationNumber = 0;
   let population = initPopulation(problem, targetFunction);
   let isEnd = false;
