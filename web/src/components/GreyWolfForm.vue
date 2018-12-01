@@ -70,6 +70,7 @@
               <md-input v-model="problem.accuracy" id="accuracy" type="number" min="0" step="any" required/>
             </md-field>
             <md-button type="submit" class="md-raised md-primary">Solve</md-button>
+            <md-progress-spinner v-if="disabled" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" style="margin-top: 10px"></md-progress-spinner>
           </div>
         </div>
       </md-step>
@@ -80,6 +81,7 @@
 <script>
   export default {
     name: 'grey-wolf-form',
+    props: ['disabled'],
     data: () => ({
       active: 'first',
       first: false,

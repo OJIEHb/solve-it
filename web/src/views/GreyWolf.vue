@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout">
-    <md-progress-bar v-if="!isLoaded" md-mode="indeterminate"></md-progress-bar>
-    <grey-wolf-form @submit="onSubmit"/>
+    <md-progress-bar  md-mode="indeterminate"></md-progress-bar>
+    <grey-wolf-form @submit="onSubmit" :disabled="isLoaded"/>
   </div>
 </template>
 
@@ -17,11 +17,11 @@
     },
     name: 'grey-wolf',
     data: () => ({
-      isLoaded: true
+      isLoaded: false
     }),
     methods: {
       onSubmit(problem) {
-        this.isLoaded = false;
+        this.isLoaded = true;
         // TODO: clean up
         problem.wolfNumber = parseInt(problem.wolfNumber);
         problem.maxIterationNumber = parseInt(problem.maxIterationNumber);
@@ -35,7 +35,7 @@
             console.log(error);
           })
           .finally(() => {
-            this.isLoaded = true;
+            this.isLoaded = false;
           })
       }
     }
