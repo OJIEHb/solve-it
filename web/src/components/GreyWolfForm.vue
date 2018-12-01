@@ -1,12 +1,12 @@
 <template>
-  <form class="md-layout" @submit.prevent="$emit('submit', problem)">
+  <form class="md-layout" @submit.prevent="$emit('submit', value)">
     <md-steppers :md-active-step.sync="active" class="stepper">
       <md-step id="first" md-label="First Step" md-description="Target function" :md-done.sync="first">
         <div class="md-layout md-alignment-top-center">
           <div class="md-layout-item md-size-60">
             <md-field>
               <label>Target function</label>
-              <md-select v-model="problem.targetFunction" name="targetFunction" id="targetFunction" required>
+              <md-select v-model="value.targetFunction" name="targetFunction" id="targetFunction" required>
                 <md-option value="alpine">Alpine</md-option>
                 <md-option value="aqley">Aqley</md-option>
                 <md-option value="elliptical">Elliptical</md-option>
@@ -31,11 +31,11 @@
             <md-button class="md-fab md-mini md-plain" @click="removeBound">
               <md-icon>remove</md-icon>
             </md-button>
-            <span class="md-title dimensions">{{problem.dimensions}}</span>
+            <span class="md-title dimensions">{{value.dimensions}}</span>
             <md-button class="md-fab md-mini md-primary" @click="addBound">
               <md-icon>add</md-icon>
             </md-button>
-            <div v-for="(bound, i) in problem.bounds" class="md-layout md-gutter">
+            <div v-for="(bound, i) in value.bounds" class="md-layout md-gutter">
               <div class="md-layout-item">
                 <md-field>
                   <label for="max">d{{i+1}} Max</label>
@@ -59,15 +59,15 @@
           <div class="md-layout-item md-size-60">
             <md-field>
               <label for="maxIterationNumber">Max iteration number</label>
-              <md-input v-model="problem.maxIterationNumber" type="number" min="0" id="maxIterationNumber" required/>
+              <md-input v-model="value.maxIterationNumber" type="number" min="0" id="maxIterationNumber" required/>
             </md-field>
             <md-field>
               <label for="wolfNumber">Wolf number</label>
-              <md-input v-model="problem.wolfNumber" type="number" min="0" id="wolfNumber" required/>
+              <md-input v-model="value.wolfNumber" type="number" min="0" id="wolfNumber" required/>
             </md-field>
             <md-field>
               <label for="accuracy">Accuracy</label>
-              <md-input v-model="problem.accuracy" id="accuracy" type="number" min="0" step="any" required/>
+              <md-input v-model="value.accuracy" id="accuracy" type="number" min="0" step="any" required/>
             </md-field>
             <md-button type="submit" class="md-raised md-primary">Solve</md-button>
             <md-progress-spinner v-if="disabled" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" style="margin-top: 10px"></md-progress-spinner>
@@ -81,20 +81,12 @@
 <script>
   export default {
     name: 'grey-wolf-form',
-    props: ['disabled'],
+    props: ['disabled', 'value'],
     data: () => ({
       active: 'first',
       first: false,
       second: false,
       third: false,
-      problem: {
-        targetFunction: 'alpine',
-        dimensions: 2,
-        bounds: [{min: 0, max: 0}, {min: 0, max: 0}],
-        maxIterationNumber: 250,
-        wolfNumber: 50,
-        accuracy: 0.00001
-      }
     }),
     methods: {
       setDone(id, index) {
@@ -105,13 +97,13 @@
         }
       },
       addBound() {
-        this.problem.bounds.push({min: 0, max: 0});
-        this.problem.dimensions++;
+        this.value.bounds.push({min: 0, max: 0});
+        this.value.dimensions++;
       },
       removeBound() {
-        if (this.problem.bounds.length > 2) {
-          this.problem.bounds.pop();
-          this.problem.dimensions--;
+        if (this.value.bounds.length > 2) {
+          this.value.bounds.pop();
+          this.value.dimensions--;
         }
       }
     }
